@@ -27,7 +27,7 @@ class tetris:
             ComboBox[a-1].append(word2)
 
 
-    def __init__(self, _) :
+    def __init__(self) :
         rows = int(tetris.height / tetris.Box_size)
         columns = int(tetris.width / tetris.Box_size)
 
@@ -371,14 +371,16 @@ class tetris:
             return None
 
 os.chdir(sys._MEIPASS + '\image')
+
 doon=Tk()
 doon.title("PuyoPyuo Ver1.0")
+doon.bind("<Key>", bb.handle_events)
 
 canvas = Canvas(doon, width = tetris.width, height = tetris.height)
 canvas.pack()
 
-bb=tetris(canvas)
-doon.bind("<Key>", bb.handle_events)
+bb=tetris()
+
 
 status_var = StringVar()
 status_var.set("Score: {}".format(bb.Score))
