@@ -270,7 +270,7 @@ class tetris:
             if (a or b) :
                 bb.Combo += 1
                 self.chain_trigger = True  # 점수 계산용 아직 미구현
-                self.Comboprint(self.x, self.y)
+                # self.Comboprint(self.x, self.y)
                 self.gravity()
                 while self.chain_trigger :  # 팝핑이 일어나면 반복
                     canvas.update()
@@ -288,7 +288,7 @@ class tetris:
 
                     if self.chain_trigger:
                         bb.Combo += 1
-                        self.Comboprint(self.x, self.y)
+                        # self.Comboprint(self.x, self.y)
                     self.gravity()
 
             self.objbox = "Recreate"
@@ -363,23 +363,23 @@ class tetris:
         if not self.can_fall or not self.can_fall2 :
             if self.BoxCoords[1] == bb.Box_size or self.BoxCoords2[1] == bb.Box_size :
                 self.gameover = "ON"
-                GameOverimage = PhotoImage(file = "GameOver.png").subsample(4)
-                canvas.create_image(bb.Box_size * 4 + 10, bb.Box_size * 7, image = GameOverimage)
-                doon.update()         
+                #GameOverimage = PhotoImage(file = "GameOver.png").subsample(4)
+                #canvas.create_image(bb.Box_size * 4 + 10, bb.Box_size * 7, image = GameOverimage)
+                #doon.update()         
                 raise NotImplementedError
         else :
             return None
 
-os.chdir(sys._MEIPASS + '\image')
+#os.chdir(sys._MEIPASS + '\image')
 
 doon=Tk()
 doon.title("PuyoPyuo Ver1.0")
-doon.bind("<Key>", bb.handle_events)
 
 canvas = Canvas(doon, width = tetris.width, height = tetris.height)
 canvas.pack()
 
 bb=tetris()
+doon.bind("<Key>", bb.handle_events)
 
 
 status_var = StringVar()
